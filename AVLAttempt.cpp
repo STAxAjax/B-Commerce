@@ -18,6 +18,7 @@ typedef struct Node {
 	struct Node* left;
 	struct Node* right;
 	Detail item_Detail;
+	// can use height variable, may be useful for other data structures, B-Tree?
 }Node;
 
 void fillDetail (Node* root,int price, int quanity, bool availablity){
