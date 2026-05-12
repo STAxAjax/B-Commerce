@@ -287,20 +287,20 @@ void Menu (Node* root) {
 }
 int main (){
 	Node* root=NULL;
-	root=insertNode (root,"Hello");
-	root=insertNode (root,"Hi");
+	// root=insertNode (root,"Hello");
+	// root=insertNode (root,"Hi");
 
-	root=insertNode (root,"Ab");
-	root=insertNode (root,"Aa");
-	root=insertNode (root,"Ba");
-	root=insertNode (root,"Jello");
-	root=insertNode (root,"Zello");
-	root=insertNode (root,"Zf");
-	root=insertNode (root,"Zg");
-	root=insertNode (root,"Zh");
-	root=insertNode (root,"Zi");
-	root=insertNode (root,"Zj");
-	root=insertNode (root,"Zk");
+	// root=insertNode (root,"Ab");
+	// root=insertNode (root,"Aa");
+	// root=insertNode (root,"Ba");
+	// root=insertNode (root,"Jello");
+	// root=insertNode (root,"Zello");
+	// root=insertNode (root,"Zf");
+	// root=insertNode (root,"Zg");
+	// root=insertNode (root,"Zh");
+	// root=insertNode (root,"Zi");
+	// root=insertNode (root,"Zj");
+	// root=insertNode (root,"Zk");
 	Menu(root);
 //	printf ("\n\n%s\n",root->key);
 //	printf ("\nright child  %s\n",root->right->key);
