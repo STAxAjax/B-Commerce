@@ -9,7 +9,7 @@ struct Node{
 
 struct Node* top = NULL;
 
-// Push data
+
 void history(char name[]){
     struct Node* newNode;
     newNode = (struct Node*)malloc(sizeof(struct Node));
@@ -18,7 +18,7 @@ void history(char name[]){
     top = newNode;
 }
 
-// View history page
+
 void viewHistory(){
     int choice;
     system("cls");
@@ -42,14 +42,12 @@ void viewHistory(){
     printf("Choose: ");
     scanf("%d", &choice);
 
-    // Delete latest history
-    if(choice == 1){
 
+    if(choice == 1){
         if(top == NULL){
             printf("\nHistory is empty\n");
             system("pause");
-        }
-        else{
+        }else{
             struct Node* del = top;
             top = top->next;
             free(del);
