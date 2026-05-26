@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <Windows.h>
+#include <stdbool.h>
+
+
+typedef struct user{
+	char name[50];
+	short role;
+	struct user *next;
+}User;
+
+User* createNode(char* name,short role){
+	User* newNode = (User*)malloc(sizeof(User));
+	strcpy (newNode->name, name);
+	newNode->role = role;
+	return newNode;
+}
+User* userHash = (User*)calloc(26,sizeof(User));
+
+int hasFunction(char *dst){
+	int temp = dst[0];
+	int key = temp - 97;
+	return key;
+}
+
+void tolowerstr(const char *src, char *dst){
+	int i;
+	for (i = 0; i < strlen(src); i++){
+		dst[i] = tolower(src[i]);
+	}
+	dst[i] = '\0';
+}
+void hashTable(User a){
+	short key;
+	char temp[100];
+	tolowerstr(a.name, temp);
+	key = hasFunction(temp);
+	strcpy(userHash[key].name, a.name);
+	if(userHash[key].role != 0){
+		User* temp2 = NULL;
+		temp2 = &userHash[key];
+	}else{
+		strcpy(userHash[key].name, a.name);
+		userHash[key].role = a.role;
+	}
+}
+
+
+int main(){
+	
+}
