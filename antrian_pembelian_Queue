@@ -1,0 +1,127 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <windows.h>
+
+struct Node{
+    char nama[50];
+    char barang[50];
+    int qty;
+    int harga;
+    struct Node *next;
+};
+
+struct Node *head = NULL;
+struct Node *tail = NULL;
+
+void addQueue(char nama[], char barang[], int qty, int harga){
+    struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+
+    strcpy(newNode->nama, nama);
+    strcpy(newNode->barang, barang);
+    newNode->qty = qty;
+    newNode->harga = harga;
+    newNode->next = NULL;
+
+    if(head == NULL){
+        head = tail = newNode;
+    }
+    else{
+        tail->next = newNode;
+        tail = newNode;
+    }
+}
+
+void viewQueue(){
+    system("cls");
+
+    printf("=== DATA PEMBELIAN ===\n\n");
+
+    if(head == NULL){
+        printf("Queue is empty.\n");
+    }
+    else{
+        struct Node *temp = head;
+        int no = 1;
+
+        printf("No\tNama\tBarang\tQty\tHarga\n");
+        printf("=========================================\n");
+
+        while(temp != NULL){
+            printf("%d\t%s\t%s\t%d\t%d\n",
+                   no++,
+                   temp->nama,
+                   temp->barang,
+                   temp->qty,
+                   temp->harga);
+
+            temp = temp->next;
+        }
+    }
+
+    printf("\n");
+    system("pause");
+}
+
+int main(){
+
+    int pilih;
+    char nama[50];
+    char barang[50];
+    int qty, harga;
+
+    do{
+        system("cls");
+
+        printf("=== PURCHASE QUEUE ===\n");
+        printf("1. Add Data\n");
+        printf("2. View Data\n");
+        printf("3. Exit\n");
+        printf("Pilih : ");
+        scanf("%d", &pilih);
+        getchar();
+
+        switch(pilih){
+
+            case 1:
+				system("cls");
+				printf("=== ANTRIAN PEMBELI ===\n");
+				
+                printf("Nama         : ");
+                scanf("%[^\n]", nama);
+                getchar();
+
+                printf("Nama Barang  : ");
+                scanf("%[^\n]", barang);
+                getchar();
+
+                printf("Quantity     : ");
+                scanf("%d", &qty);
+
+                printf("Jumlah Harga : ");
+                scanf("%d", &harga);
+                getchar();
+
+                addQueue(nama, barang, qty, harga);
+
+                printf("\nData berhasil ditambahkan!\n");
+                system("pause");
+                break;
+
+            case 2:
+                viewQueue();
+                break;
+
+            case 3:
+                printf("Program selesai.\n");
+                break;
+
+            default:
+                printf("Menu tidak valid!\n");
+                system("pause");
+        }
+
+    }while(pilih != 3);
+
+    return 0;
+}
